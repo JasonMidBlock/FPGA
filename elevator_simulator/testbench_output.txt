@@ -1,0 +1,74 @@
+# Time=20: Reset completed
+# Time=20 | Floor=1 | Door=Closed | State=Idle | Target Floor=x | Req Queue=00000000
+# Time=30: Test Case 1 - Internal request for floor 4
+# Time=35 | Floor=1 | Door=Closed | State=Idle | Target Floor=4 | Req Queue=00001000
+# Time=45 | Floor=2 | Door=Closed | State=  Up | Target Floor=4 | Req Queue=00001000
+# Time=95 | Floor=3 | Door=Closed | State=  Up | Target Floor=4 | Req Queue=00001000
+# Time=145 | Floor=4 | Door=Closed | State=  Up | Target Floor=4 | Req Queue=00000000
+# Time=155 | Floor=4 | Door=Closed | State=Idle | Target Floor=4 | Req Queue=00000000
+# Time=180: Test Case 2 - External up request for floor 6
+# Time=185 | Floor=4 | Door=Closed | State=Idle | Target Floor=4 | Req Queue=00100000
+# Time=190: Test Case 2 - Internal request for floor 2
+# Time=195 | Floor=4 | Door=  Open | State=Idle | Target Floor=4 | Req Queue=00100010
+# Time=295 | Floor=4 | Door=Closed | State=Idle | Target Floor=4 | Req Queue=00100010
+# Time=305 | Floor=4 | Door=Closed | State=Idle | Target Floor=6 | Req Queue=00100010
+# Time=315 | Floor=5 | Door=Closed | State=  Up | Target Floor=6 | Req Queue=00100010
+# Time=365 | Floor=6 | Door=Closed | State=  Up | Target Floor=6 | Req Queue=00000010
+# Time=375 | Floor=6 | Door=Closed | State=Idle | Target Floor=6 | Req Queue=00000010
+# Time=415 | Floor=6 | Door=  Open | State=Idle | Target Floor=6 | Req Queue=00000010
+# Time=440: Test Case 3 - External down request for floor 3
+# Time=445 | Floor=6 | Door=  Open | State=Idle | Target Floor=6 | Req Queue=00000110
+# Time=515 | Floor=6 | Door=Closed | State=Idle | Target Floor=6 | Req Queue=00000110
+# Time=525 | Floor=6 | Door=Closed | State=Idle | Target Floor=3 | Req Queue=00000110
+# Time=535 | Floor=5 | Door=Closed | State=Down | Target Floor=3 | Req Queue=00000110
+# Time=585 | Floor=4 | Door=Closed | State=Down | Target Floor=3 | Req Queue=00000110
+# Time=635 | Floor=3 | Door=Closed | State=Down | Target Floor=3 | Req Queue=00000010
+# Time=640: Test Case 4 - Internal request for floor 1
+# Time=645 | Floor=3 | Door=Closed | State=Idle | Target Floor=3 | Req Queue=00000011
+# Time=650: Test Case 4 - Internal request for floor 5
+# Time=655 | Floor=3 | Door=Closed | State=Idle | Target Floor=3 | Req Queue=00010011
+# Time=660: Test Case 4 - Internal request for floor 8
+# Time=665 | Floor=3 | Door=Closed | State=Idle | Target Floor=3 | Req Queue=10010011
+# Time=685 | Floor=3 | Door=  Open | State=Idle | Target Floor=3 | Req Queue=10010011
+# Time=785 | Floor=3 | Door=Closed | State=Idle | Target Floor=3 | Req Queue=10010011
+# Time=795 | Floor=3 | Door=Closed | State=Idle | Target Floor=2 | Req Queue=10010011
+# Time=805 | Floor=2 | Door=Closed | State=Down | Target Floor=2 | Req Queue=10010001
+# Time=815 | Floor=2 | Door=Closed | State=Idle | Target Floor=2 | Req Queue=10010001
+# Time=855 | Floor=2 | Door=  Open | State=Idle | Target Floor=2 | Req Queue=10010001
+# Time=910: Test Case 5 - External up request for floor 7, down request for floor 3
+# Time=915 | Floor=2 | Door=  Open | State=Idle | Target Floor=2 | Req Queue=11010101
+# Time=955 | Floor=2 | Door=Closed | State=Idle | Target Floor=2 | Req Queue=11010101
+# Time=965 | Floor=2 | Door=Closed | State=Idle | Target Floor=1 | Req Queue=11010101
+# Time=975 | Floor=1 | Door=Closed | State=Down | Target Floor=1 | Req Queue=11010100
+# Time=985 | Floor=1 | Door=Closed | State=Idle | Target Floor=1 | Req Queue=11010100
+# Time=1025 | Floor=1 | Door=  Open | State=Idle | Target Floor=1 | Req Queue=11010100
+# Time=1125 | Floor=1 | Door=Closed | State=Idle | Target Floor=1 | Req Queue=11010100
+# Time=1135 | Floor=1 | Door=Closed | State=Idle | Target Floor=8 | Req Queue=11010100
+# Time=1145 | Floor=2 | Door=Closed | State=  Up | Target Floor=8 | Req Queue=11010100
+# Time=1160: Test Case 6 - External down request for floor 1
+# Time=1165 | Floor=2 | Door=Closed | State=  Up | Target Floor=8 | Req Queue=11010101
+# Time=1170: Test Case 6 - External up request for floor 8
+# Time=1195 | Floor=3 | Door=Closed | State=  Up | Target Floor=8 | Req Queue=11010101
+# Time=1245 | Floor=4 | Door=Closed | State=  Up | Target Floor=8 | Req Queue=11010101
+# Time=1295 | Floor=5 | Door=Closed | State=  Up | Target Floor=8 | Req Queue=11010101
+# Time=1345 | Floor=6 | Door=Closed | State=  Up | Target Floor=8 | Req Queue=11010101
+# Time=1395 | Floor=7 | Door=Closed | State=  Up | Target Floor=8 | Req Queue=11010101
+# Time=1420: Test Case 7 - Internal request for floor 2
+# Time=1425 | Floor=7 | Door=Closed | State=  Up | Target Floor=8 | Req Queue=11010111
+# Time=1430: Test Case 7 - External up request for floor 4
+# Time=1435 | Floor=7 | Door=Closed | State=  Up | Target Floor=8 | Req Queue=11011111
+# Time=1440: Test Case 7 - External down request for floor 6
+# Time=1445 | Floor=8 | Door=Closed | State=  Up | Target Floor=8 | Req Queue=01111111
+# Time=1455 | Floor=8 | Door=Closed | State=Idle | Target Floor=8 | Req Queue=01111111
+# Time=1495 | Floor=8 | Door=  Open | State=Idle | Target Floor=8 | Req Queue=01111111
+# Time=1595 | Floor=8 | Door=Closed | State=Idle | Target Floor=8 | Req Queue=01111111
+# Time=1605 | Floor=8 | Door=Closed | State=Idle | Target Floor=7 | Req Queue=01111111
+# Time=1615 | Floor=7 | Door=Closed | State=Down | Target Floor=7 | Req Queue=00111111
+# Time=1625 | Floor=7 | Door=Closed | State=Idle | Target Floor=7 | Req Queue=00111111
+# Time=1665 | Floor=7 | Door=  Open | State=Idle | Target Floor=7 | Req Queue=00111111
+# Time=1765 | Floor=7 | Door=Closed | State=Idle | Target Floor=7 | Req Queue=00111111
+# Time=1775 | Floor=7 | Door=Closed | State=Idle | Target Floor=6 | Req Queue=00111111
+# Time=1785 | Floor=6 | Door=Closed | State=Down | Target Floor=6 | Req Queue=00011111
+# Time=1795 | Floor=6 | Door=Closed | State=Idle | Target Floor=6 | Req Queue=00011111
+# Time=1835 | Floor=6 | Door=  Open | State=Idle | Target Floor=6 | Req Queue=00011111
+# Time=1840: Simulation finished
