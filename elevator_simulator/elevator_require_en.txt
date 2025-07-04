@@ -1,0 +1,87 @@
+Elevator FSM Design Requirements
+
+1. System Overview
+This project involves designing a simple elevator system using Verilog. The design focuses on a single elevator servicing a configurable number of floors. The elevator operates based on a finite state machine (FSM) and handles both internal and external requests.
+
+2. Specifications
+
+Number of Floors: Configurable parameter (e.g., 1-8 floors).
+
+Elevator Count: Single elevator.
+
+Control Logic: FIFO-based multi-request handling.
+
+Button Types:
+
+External buttons at each floor (Up/Down requests)
+
+Internal buttons inside the elevator (Floor selection)
+
+Direction Handling:
+
+Requests are served in the current direction until no further requests exist in that direction.
+
+Opposite direction requests are queued and handled once the elevator changes direction.
+
+Motion Timing:
+
+Moving between floors takes 5 time units.
+
+Door opening takes 5 time units.
+
+Door remains open for 5 time units.
+
+Door closing takes 5 time units.
+
+3. Inputs and Outputs
+
+Inputs:
+
+Clock and Reset
+
+Floor requests (internal and external)
+
+Current floor
+
+Outputs:
+
+Door status (open/close)
+
+Current floor display
+
+Elevator motion state (idle/moving)
+
+4. Simulation and Testing
+
+All control and testing will be done through a Verilog testbench.
+
+No physical hardware interface (e.g., LEDs, switches) is required.
+
+Behavior will be verified through waveform inspection.
+
+5. FSM Behavior for Door Control
+
+Elevator opens the door upon reaching a requested floor.
+
+Door remains open for 5 time units, then closes over 5 time units.
+
+Once the door is closed, the elevator resumes motion if there are remaining requests.
+
+6. Scheduling Behavior
+
+Requests are handled in a queue based on arrival order (FIFO).
+
+While moving in one direction, only same-direction requests are processed.
+
+Opposite-direction requests are deferred until the direction changes.
+
+Example: If the elevator is going up from 3F to 4F and a 2F up request arrives, it will be ignored until the elevator changes direction to down.
+
+7. Additional Notes
+
+The design should be modular and scalable.
+
+Future extension may include support for multiple elevators or more advanced scheduling algorithms.
+
+This requirement document can be shared with teammates to guide them in developing consistent elevator FSM implementations.
+

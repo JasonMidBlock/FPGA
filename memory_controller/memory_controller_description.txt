@@ -1,0 +1,83 @@
+
+FPGA 記憶體控制器說明文件
+===========================
+
+一、系統架構
+------------
+本專案設計一個簡單的記憶體控制器模組（mem_controller），負責與外部 SRAM 記憶體介接，實現讀寫操作的控制。整體模擬架構包含：
+- 一個主控模組 mem_controller
+- 一個記憶體模擬模組 sram_model
+- 一個測試平台 tb_mem_controller
+
+系統示意圖：
+
+  +--------------------+
+  |  tb_mem_controller |
+  |     (Testbench)    |
+  +--------+-----------+
+           |
+           v
+  +--------------------+
+  |   mem_controller   |
+  +--------+-----------+
+           |
+           v
+  +--------------------+
+  |     sram_model     |
+  +--------------------+
+
+二、模組說明
+------------
+
+1. mem_controller.v
+--------------------
+控制器模組介面如下：
+
+input  clk, rst;
+input  wr_en, rd_en;              // 寫入 / 讀取使能
+input  [ADDR_WIDTH-1:0] addr;     // 記憶體地址
+input  [DATA_WIDTH-1:0] wr_data;  // 寫入資料
+output reg [DATA_WIDTH-1:0] rd_data; // 讀出資料
+output reg ready;                 // 完成訊號
+
+// SRAM interface
+output reg [ADDR_WIDTH-1:0] mem_addr;
+output reg [DATA_WIDTH-1:0] mem_dout;
+input  [DATA_WIDTH-1:0] mem_din;
+output reg mem_wr_en;
+
+操作流程：
+- 若 wr_en 為 1，控制器將輸出地址與資料至 SRAM，並啟動寫入（mem_wr_en = 1）
+- 若 rd_en 為 1，控制器將輸出地址，並讀回 SRAM 內容到 rd_data
+- ready 會在每次操作結束時拉高一個 clock cycle
+
+2. sram_model.v
+---------------
+此模組模擬一個同步 SRAM，支援：
+- 同步寫入
+- 同步讀取（讀出值在下一個時脈週期穩定）
+
+input clk;
+input wr_en;
+input [ADDR_WIDTH-1:0] addr;
+input [DATA_WIDTH-1:0] data_in;
+output reg [DATA_WIDTH-1:0] data_out;
+
+3. tb_mem_controller.v
+----------------------
+測試平台模組功能：
+- 重置控制器
+- 向位址 0x20 寫入 0xA5
+- 讀回 0x20 的資料
+- 比對是否等於 0xA5，決定測試通過與否
+
+測試採自動化進行，並於結果失敗時使用 $fatal 中止模擬。
+
+三、後續擴充建議
+------------------
+若需支援更複雜的記憶體操作，可擴充：
+- Burst Read / Write
+- 支援多通道記憶體
+- Byte-enable 訊號
+- 支援 AXI-lite / AHB bus 協定轉接
+- 加入 FIFO buffer 實現非阻塞操作
